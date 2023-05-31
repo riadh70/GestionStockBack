@@ -126,7 +126,17 @@
             </goals>
           </execution>
         </executions> 
-     </plugin> 
+     </plugin>  
+      
+     <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <!-- Add required version -->
+            <version>3.8.1</version>
+            <configuration>
+                <!-- Add plugin configuration if required -->
+            </configuration>
+      </plugin>
 
              
     </plugins>
