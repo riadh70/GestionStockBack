@@ -35,13 +35,13 @@ pipeline {
                   echo 'unit tests stage done'
             }
         }
-//         stage("mvn Pckage") {
-//           steps {
-//                script {
-//                  sh "mvn package -DskipTests=true"
-//              }
-//           }
-//       } 
+         stage("mvn Pckage") {
+           steps {
+                script {
+                  sh "mvn package -DskipTests=true"
+              }
+           }
+       } 
   //       stage("docker build") {
   //         steps{
   //         script {
