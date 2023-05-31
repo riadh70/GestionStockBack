@@ -1,10 +1,10 @@
 pipeline { 
-//    environment{
+    environment{
 //       registry="esprituser/tpachatprojctbackend"
 //       registryCredential='esprituser-dockerhub'
-//       dokerImage="tpachatprojctbackend" 
-//       PATH = "$PATH:/usr/local/bin"
-// } 
+ //       dokerImage="tpachatprojctbackend" 
+         PATH = "$PATH:/usr/local/bin"
+ } 
     
     agent any
     stages {  
