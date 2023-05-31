@@ -136,6 +136,19 @@
             <configuration>
                 <!-- Configure plugin options if required -->
             </configuration>
+        </plugin> 
+       <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <!-- Set the appropriate version of the maven-compiler-plugin -->
+            <version>3.8.1</version>
+            <configuration>
+                <source>11</source> <!-- Set the Java source version -->
+                <target>11</target> <!-- Set the Java target version -->
+                <compilerArgs>
+                    <arg>-parameters</arg> <!-- Optional: enable parameter reflection for Spring Boot -->
+                </compilerArgs>
+            </configuration>
         </plugin>
   
     </plugins>
