@@ -25,7 +25,7 @@ pipeline {
    
       stage("compile Project"){
            steps {
-                 sh 'mvn clean compile'
+                 sh 'mvn compile -X -e'
                   echo 'compile stage done'
             }
       }
