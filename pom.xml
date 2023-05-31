@@ -10,7 +10,7 @@
   </parent>
   <groupId>com.bellili</groupId>
   <artifactId>gestiondestock</artifactId>
-  <version>1.0</version>
+  <version>0.0.1-SNAPSHOT</version>
   <name>API_Gestion_de_stock</name>
   <description>API de gestion de stock</description>
   <properties>
@@ -126,7 +126,12 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
+      </plugin> 
+      <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-resources-plugin</artifactId>
+           <version>3.1.0</version>
+      </plugin>  
     </plugins>
   </build>
 
