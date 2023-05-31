@@ -4,8 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Checkout source code from version control
-                git 'https://github.com/riadh70/GestionStockBack.git'
+                // Checkout source code from version control 
+                git branch: 'master',
+                url:'https://github.com/riadh70/GestionStockBack.git'
                 
                 // Set up environment variables if required
                 
