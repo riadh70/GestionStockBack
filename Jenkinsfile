@@ -1,10 +1,10 @@
 pipeline { 
-    environment{
-         registry="esprituser/GestionStockBack"
+//    environment{
+//         registry="esprituser/GestionStockBack"
 //       registryCredential='esprituser-dockerhub'
  //       dokerImage="tpachatprojctbackend" 
-         PATH = "$PATH:/usr/local/bin"
- } 
+ //        PATH = "$PATH:/usr/local/bin"
+// } 
     
     agent any
     stages {  
@@ -45,7 +45,7 @@ pipeline {
          stage("docker build") {
            steps{
            script {
-               dockerImage = docker.build registry + ":$BUILD_NUMBER"
+               docker.build("my-docker-image:${env.BUILD_NUMBER}")
               }
            }
          }  
