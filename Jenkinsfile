@@ -1,118 +1,37 @@
-pipeline { 
-//    environment{
-//       registry="esprituser/tpachatprojctbackend"
-//       registryCredential='esprituser-dockerhub'
-//       dokerImage="tpachatprojctbackend" 
-//       PATH = "$PATH:/usr/local/bin"
-// } 
-    
+pipeline {
     agent any
-    stages {  
-       stage("Cloning Project"){
-           steps {
-            git branch: 'master',
-            url: 'https://github.com/riadh70/GestionStockBack.git'  
-            echo 'checkout stage'
-            }
-       } 
-       
-       stage ('MVN clean') {
-         steps {
-            sh 'mvn clean -e'
-            echo 'Build stage done'
-        }
-     }
-   
-      stage("compile Project"){
-           steps {
-                 sh 'mvn compile -X -e '
-                  echo 'compile stage done'
-            }
-      }
-        stage("unit tests"){
+
+    stages {
+        stage('Build') {
             steps {
-                  sh 'mvn test'
-                  echo 'unit tests stage done'
+                // Checkout source code from version control
+                git 'https://github.com/riadh70/GestionStockBack.git'
+                
+                // Set up environment variables if required
+                
+                // Execute Maven build
+                sh 'mvn clean package'
             }
         }
-         stage("mvn Pckage") {
-           steps {
-                script {
-                  sh "mvn package -DskipTests=true"
-              }
-           }
-       } 
-  //       stage("docker build") {
-  //         steps{
-  //         script {
-  //             dockerImage = docker.build registry + ":$BUILD_NUMBER"
-  //            }
-  //         }
-  //       }  
-  //        stage("DockerHub login ") {
-  //            steps{
-  //                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u esprituser -p P@ssw0rd@imc'
-  //          }
-  //        }
-  //       stage("docker push") {
-  //          steps{
-  //            script {
-  //              docker.withRegistry( '', registryCredential ) {
-   //             dockerImage.push()
-   //          }
-   //        }
-   //    }
-   //   }   
-            
-   //      stage('Docker-compose file') {
-
-    //          steps {
-    //               sh 'docker-compose up -d';
-    //                sh 'sleep 300'
-              
-    //         }  
-    //    }
-         //   stage('Cleaning up') {
-        //     steps{
-        //     sh "docker rmi $registry:$BUILD_NUMBER"
-        //   }
-       // }
-  //     stage("SonarQube Analysis") {
-  //       steps {
- //            withSonarQubeEnv('sq1') {
- //             sh 'mvn sonar:sonar'
- //            }
-                 
- //         }
- //      } 
         
- 
-//     stage("Upload Jar  To Nexus") {
-//            steps {  
-//               nexusArtifactUploader artifacts: [ 
-//                 [ 
-//                    artifactId: 'tpAchatProject',  
-//                      classifier: '',  
-//                      file: 'target/tpAchatProject-1.0.jar',   
-//                      type: 'jar' 
-//                   ]  
+        stage('Test') {
+            steps {
+                // Execute Maven tests
+                sh 'mvn test'
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                // Deploy the application to your environment (e.g., staging or production)
+                sh 'mvn deploy'
+            }
+        }
+    }
 
-//            ],  
-//            credentialsId: 'nexus3', 
-//            groupId: 'com.esprit.examen', 
-//            nexusUrl: '172.20.10.5:8081', 
-//            nexusVersion: 'nexus3', 
-//            protocol: 'http', 
-//            repository: 'deploymentRepo',  
-//            version: '1.0' 
-
-
-//        }  
-
-//     } 
-
- 
-          
-       
-   }
+    post {
+        always {
+            // Perform post-build actions if required
+        }
+    }
 }
