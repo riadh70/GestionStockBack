@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.5.3</version>
+    <version>2.4.2</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.bellili</groupId>
   <artifactId>gestiondestock</artifactId>
-  <version>1.0</version>
+  <version>0.0.1-SNAPSHOT</version>
   <name>API_Gestion_de_stock</name>
   <description>API de gestion de stock</description>
   <properties>
@@ -126,19 +126,7 @@
             </goals>
           </execution>
         </executions> 
-     </plugin>  
-      
-     <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <!-- Add required version -->
-            <version>3.1.0</version>
-            <configuration>
-                <!-- Add plugin configuration if required -->
-            </configuration>
-      </plugin>
-
-             
+     </plugin>              
     </plugins>
   </build>
 
