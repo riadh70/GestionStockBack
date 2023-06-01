@@ -87,29 +87,29 @@ pipeline {
        } 
         
  
-//     stage("Upload Jar  To Nexus") {
-//            steps {  
-//               nexusArtifactUploader artifacts: [ 
-//                 [ 
-//                    artifactId: 'tpAchatProject',  
-//                      classifier: '',  
-//                      file: 'target/tpAchatProject-1.0.jar',   
-//                      type: 'jar' 
-//                   ]  
+     stage("Upload Jar  To Nexus") {
+            steps {  
+               nexusArtifactUploader artifacts: [ 
+                 [ 
+                      artifactId: 'gestiondestock',  
+                      classifier: '',  
+                      file: 'target/gestiondestock-0.0.1-SNAPSHOT.jar',   
+                      type: 'jar' 
+                   ]  
 
-//            ],  
-//            credentialsId: 'nexus3', 
-//            groupId: 'com.esprit.examen', 
-//            nexusUrl: '172.20.10.5:8081', 
-//            nexusVersion: 'nexus3', 
-//            protocol: 'http', 
-//            repository: 'deploymentRepo',  
-//            version: '1.0' 
+            ],  
+            credentialsId: 'nexus3', 
+            groupId: 'com.bellili', 
+            nexusUrl: '172.20.10.4:8081', 
+            nexusVersion: 'nexus3', 
+            protocol: 'http', 
+            repository: 'deploymentRepo',  
+            version: '1.0' 
 
 
-//        }  
+        }  
 
-//     } 
+     } 
 
  
           
