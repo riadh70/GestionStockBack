@@ -1,10 +1,10 @@
 pipeline { 
-//    environment{
-//         registry="esprituser/GestionStockBack"
-//       registryCredential='esprituser-dockerhub'
- //       dokerImage="tpachatprojctbackend" 
- //        PATH = "$PATH:/usr/local/bin"
-// } 
+    environment{
+        registry="esprituser/GestionStockBackend"
+        registryCredential='esprituser-dockerhub'
+        dokerImage="GestionStockBackend" 
+        PATH = "$PATH:/usr/local/bin"
+ } 
     
     agent any
     stages {  
@@ -49,20 +49,20 @@ pipeline {
               }
            }
          }  
-  //        stage("DockerHub login ") {
-  //            steps{
-  //                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u esprituser -p P@ssw0rd@imc'
-  //          }
-  //        }
-  //       stage("docker push") {
-  //          steps{
-  //            script {
-  //              docker.withRegistry( '', registryCredential ) {
-   //             dockerImage.push()
-   //          }
-   //        }
-   //    }
-   //   }   
+         stage("DockerHub login ") {
+              steps{
+                  sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u esprituser -p P@ssw0rd@imc'
+            }
+          }
+         stage("docker push") {
+            steps{
+              script {
+                docker.withRegistry( '', registryCredential ) {
+                dockerImage.push()
+             }
+           }
+       }
+      }   
             
    //      stage('Docker-compose file') {
 
