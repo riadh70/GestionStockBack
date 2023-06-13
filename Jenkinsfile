@@ -23,12 +23,12 @@ pipeline {
         }
      }
    
-      stage("compile Project"){
-           steps {
-                 sh 'mvn compile '
-                  echo 'compile stage done'
-            }
-      }
+ //     stage("compile Project"){
+ //          steps {
+ //                sh 'mvn compile '
+ //                 echo 'compile stage done'
+ //           }
+//      }
         stage("unit tests"){
             steps {
                   sh 'mvn test'
