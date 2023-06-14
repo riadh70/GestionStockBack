@@ -23,25 +23,25 @@ pipeline {
         }
      }
    
- //     stage("compile Project"){
- //          steps {
- //                sh 'mvn compile '
- //                 echo 'compile stage done'
- //           }
-//      }
-//        stage("unit tests"){
-//            steps {
-//                  sh 'mvn test'
-//                  echo 'unit tests stage done'
-//            }
-//        }
-//         stage("mvn Pckage") {
-//           steps {
-//                script {
-//                  sh "mvn package -DskipTests=true"
-//              }
-//           }
-//       } 
+      stage("compile Project"){
+           steps {
+                 sh 'mvn compile '
+                  echo 'compile stage done'
+            }
+      }
+        stage("unit tests"){
+            steps {
+                  sh 'mvn test'
+                  echo 'unit tests stage done'
+            }
+        }
+         stage("mvn Pckage") {
+           steps {
+                script {
+                  sh "mvn package -DskipTests=true"
+              }
+           }
+       } 
         stage("docker build") {
            steps{
            script {
