@@ -103,7 +103,7 @@ pipeline {
             nexusUrl: '172.20.10.4:8081', 
             nexusVersion: 'nexus3', 
             protocol: 'http', 
-            repository: 'maven-snapshots',  
+            repository: 'deploymentRepo',  
             version: '1.0' 
 
 
