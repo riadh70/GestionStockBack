@@ -1,8 +1,7 @@
 pipeline { 
     environment{
         registry="esprituser/gestiondestockbackend"
-        registryCredential='jenkins-dockerhub'
-        dokerImage="gestiondestockbackend" 
+        registryCredential='esprituser-dockerhub'
         PATH = "$PATH:/usr/local/bin"
  } 
     
